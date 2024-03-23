@@ -12,6 +12,7 @@ function App() {
     };
     useEffect(() => {
         getCurrentLocation();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const getWeatherByCurrentLocation = async (lat, lon) => {
         const apiKey = "6dd95cfc5f180ab7bf62671b417e6c68";
