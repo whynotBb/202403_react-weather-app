@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
     const getCurrentLocation = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude;
@@ -20,7 +20,7 @@ function App() {
         let data = await response.json();
         console.log("data", data);
     };
-    const [weatherData, setWeatherData] = useState();
+    // const [weatherData, setWeatherData] = useState();
 
     // useEffect(() => {
     //     //현재 위치 가져오기
@@ -48,8 +48,8 @@ function App() {
     //     };
     //     fetchData();
     // }, []);
-    console.log(weatherData);
-    return <div></div>;
+    // console.log(weatherData);
+    return <div>weather</div>;
 }
 
 export default App;
