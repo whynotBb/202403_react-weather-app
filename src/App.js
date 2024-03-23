@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-    // const [isLoading, setIsLoading] = useState(true);
+    const [weathreData, setWetherData] = useState();
     const getCurrentLocation = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude;
@@ -20,37 +20,45 @@ function App() {
         let response = await fetch(url);
         let data = await response.json();
         console.log("data", data);
+        setWetherData(data);
     };
-    // const [weatherData, setWeatherData] = useState();
-
-    // useEffect(() => {
-    //     //현재 위치 가져오기
-    //     getCurrentLocation();
-    //     fetch(
-    //         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
-    //     )
-    //         .then((response) => {
-    //             return response.json();
-    //         })
-    //         .then((data) => {
-    //             setIsLoading(false);
-    //             return setWeatherData(data);
-    //         });
-    // }, []);
-    // useEffect(() => {
-    //     getCurrentLocation();
-    //     const fetchData = async () => {
-    //         const response = await fetch(
-    //             `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
-    //         );
-    //         const data = await response.json();
-    //         setIsLoading(false);
-    //         setWeatherData(data);
-    //     };
-    //     fetchData();
-    // }, []);
-    // console.log(weatherData);
-    return <div>weather</div>;
+    return (
+        <div className="body_wrap">
+            <div className="video_bg">
+                <video
+                    muted
+                    autoplay
+                    loop
+                    src="resource/video/rainy_weather_at_the_field.mp4"
+                ></video>
+            </div>
+            <video autoPlay muted loop width="100%" src=""></video>
+            <div className="weather_box_wrap">
+                <div className="weather_box">
+                    <h2>도시</h2>
+                    <h3>온도</h3>
+                    <h4>요약</h4>
+                </div>
+                <ul className="city_btn_box">
+                    <li>
+                        <button>Current Location</button>
+                    </li>
+                    <li>
+                        <button>jeju</button>
+                    </li>
+                    <li>
+                        <button>osaka</button>
+                    </li>
+                    <li>
+                        <button>new york</button>
+                    </li>
+                    <li>
+                        <button>paris</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    );
 }
 
 export default App;

@@ -1,7 +1,7 @@
 ## weather app - react project
 
 [git hub](https://github.com/whynotBb/202403_react-weather-app.git)<br/>
-<https://>
+배포 : <https://byoul-react-weather-app.netlify.app>
 
 ## open api
 
@@ -32,4 +32,13 @@ https://home.openweathermap.org/
         let data = await response.json();
         console.log("data", data);
     };
+    ```
+
+4. useEffect 빈배열 상태에서 netlify 배포 안되는 오류
+   참고 : https://velog.io/@rgfdds98/debuging-React-Hook-useEffect-has-a-missing-dependency-fetchMovieData.-Either-include-it-or-remove-the-dependency-array
+    ```
+    useEffect(() => {
+        fn();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     ```
