@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import WeatherBox from "./component/WeatherBox";
+import WeatherButton from "./component/WeatherButton";
+// import weatherDescKo from "./data/weatherDescKo";
 
 function App() {
-    const [weathreData, setWetherData] = useState();
+    const [isLoading, setIsLoading] = useState(false);
+    const [weatherData, setWetherData] = useState();
     const getCurrentLocation = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude;
@@ -14,48 +18,49 @@ function App() {
         getCurrentLocation();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
     const getWeatherByCurrentLocation = async (lat, lon) => {
         const apiKey = "6dd95cfc5f180ab7bf62671b417e6c68";
-        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+        let response = await fetch(url);
+        let data = await response.json();
+        console.log("data", data);
+        setWetherData(data);
+        setIsLoading(true);
+    };
+
+    const getCityName = (city) => {
+        getWeatherByCityName(city);
+    };
+    const getWeatherByCityName = async (city) => {
+        const apiKey = "6dd95cfc5f180ab7bf62671b417e6c68";
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
         let response = await fetch(url);
         let data = await response.json();
         console.log("data", data);
         setWetherData(data);
     };
     return (
-        <div className="body_wrap">
-            <div className="video_bg">
-                <video
-                    src="resource/video/rainy_weather_at_the_field.mp4"
-                    muted
-                    autoPlay
-                    loop
-                ></video>
-            </div>
-            <div className="weather_box_wrap">
-                <div className="weather_box">
-                    <h2>{weathreData?.name}</h2>
-                    <h3>{weathreData?.main.temp}</h3>
-                    <h4>{weathreData?.weather[0].main}</h4>
-                </div>
-                <ul className="city_btn_box">
-                    <li>
-                        <button>Current Location</button>
-                    </li>
-                    <li>
-                        <button>jeju</button>
-                    </li>
-                    <li>
-                        <button>osaka</button>
-                    </li>
-                    <li>
-                        <button>new york</button>
-                    </li>
-                    <li>
-                        <button>paris</button>
-                    </li>
-                </ul>
-            </div>
+        <div
+            className={`body_wrap weatherBg_${weatherData?.weather[0]?.id
+                ?.toString()
+                ?.charAt(0)} ${
+                weatherData?.weather[0]?.main === "Clear" && "clear"
+            }`}
+        >
+            {!isLoading ? (
+                <p>loading...</p>
+            ) : (
+                <>
+                    <div className="weather_box_wrap">
+                        <WeatherBox weatherData={weatherData} />
+                        <WeatherButton
+                            getCurrentLocation={getCurrentLocation}
+                            getCityName={getCityName}
+                        />
+                    </div>
+                </>
+            )}
         </div>
     );
 }

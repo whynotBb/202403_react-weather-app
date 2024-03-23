@@ -3,8 +3,63 @@
   margin: 0;
 }
 
+html {
+  font-size: 10px;
+}
+
+body {
+  color: #222;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
 ul {
   list-style: none;
+}
+
+button {
+  border: 1px solid #fff;
+  padding: 1rem 2rem;
+  border-radius: 0.4rem;
+  outline: 0;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  transition: all 0.3s;
+  box-shadow: 1px 1px 3px #fff;
+}
+button:hover {
+  background: #fff;
+}
+
+.body_wrap {
+  width: 100vw;
+  height: 100vh;
+  background: url(./resource/images/clouds.jpg) no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.body_wrap.weatherBg_2 {
+  background-image: url(./resource/images/Thunderstorm.jpg);
+}
+.body_wrap.weatherBg_3 {
+  background-image: url(./resource/images/rain.jpg);
+}
+.body_wrap.weatherBg_5 {
+  background-image: url(./resource/images/rain.jpg);
+}
+.body_wrap.weatherBg_6 {
+  background-image: url(./resource/images/snow.jpg);
+}
+.body_wrap.weatherBg_7 {
+  background-image: url(./resource/images/mist.jpg);
+}
+.body_wrap.weatherBg_8 {
+  background-image: url(./resource/images/clouds.jpg);
+}
+.body_wrap.clear {
+  background-image: url(./resource/images/clear.jpg) !important;
 }
 
 .weather_box_wrap {
@@ -17,13 +72,31 @@ ul {
 .weather_box_wrap .weather_box {
   text-align: center;
   background: rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 7px #222;
   border-radius: 15px;
   padding: 20px;
   color: #fff;
-  margin-bottom: 20px;
+  max-width: 50rem;
+  margin: 0 auto 20px;
+}
+.weather_box_wrap .weather_box h2 {
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: left;
+}
+.weather_box_wrap .weather_box p {
+  font-size: 1.8rem;
+}
+.weather_box_wrap .weather_box div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .weather_box_wrap .city_btn_box {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
