@@ -26,15 +26,15 @@ function App() {
         <div className="body_wrap">
             <div className="video_bg">
                 <video
-                    muted
-                    autoplay
-                    loop
                     src="resource/video/rainy_weather_at_the_field.mp4"
+                    muted
+                    autoPlay
+                    loop
                 ></video>
             </div>
-            <video autoPlay muted loop width="100%" src=""></video>
             <div className="weather_box_wrap">
                 <div className="weather_box">
+                    {weathreData?.main.temp}
                     <h2>도시</h2>
                     <h3>온도</h3>
                     <h4>요약</h4>
