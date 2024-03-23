@@ -34,10 +34,9 @@ function App() {
             </div>
             <div className="weather_box_wrap">
                 <div className="weather_box">
-                    {weathreData?.main.temp}
-                    <h2>도시</h2>
-                    <h3>온도</h3>
-                    <h4>요약</h4>
+                    <h2>{weathreData?.name}</h2>
+                    <h3>{weathreData?.main.temp}</h3>
+                    <h4>{weathreData?.weather[0].main}</h4>
                 </div>
                 <ul className="city_btn_box">
                     <li>

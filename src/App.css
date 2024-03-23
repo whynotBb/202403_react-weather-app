@@ -19,4 +19,11 @@ ul {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   padding: 20px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.weather_box_wrap .city_btn_box {
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
