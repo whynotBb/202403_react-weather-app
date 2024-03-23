@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+## weather app - react project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[git hub](https://github.com/whynotBb/202403_react-weather-app.git)
+<https://>
 
-## Available Scripts
+## open api
 
-In the project directory, you can run:
+https://home.openweathermap.org/
 
-### `npm start`
+## TODO
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   [] 앱이 실행 되자 마자 현재위치 기반의 날씨 보여주기
+-   [] 날씨 정보 : 도씨, 섭씨, 화씨, 날씨 상태
+-   [] 5개의 버튼 : 1개는 현재위치, 4개는 다른 도시
+-   [] 도시 버튼 클릭 할 때 마다 도시별 날씨 표출
+-   [] 현재위치 버튼 클릭 시 다시 현재위치의 날씨 표출
+-   [] 데이터를 가져오는 동안 로딩 스피너 기능 추가
+-   [] 날씨에 따라 배경이미지 변경
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## memo
 
-### `npm test`
+1. 실행 되자 마자 : useEffect
+2. javascript get current location
+   https://www.w3schools.com/html/html5_geolocation.asp
+3. api 호출하기
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    ```const getWeatherByCurrentLocation = async (lat, lon) => {
+            const apiKey = API KEY;
+            let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+            let response = await fetch(url);
+            let data = await response.json();
+            console.log("data", data);
+        };
+    ```
