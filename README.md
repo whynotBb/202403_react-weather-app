@@ -1,6 +1,6 @@
 ## weather app - react project
 
-[git hub](https://github.com/whynotBb/202403_react-weather-app.git)
+[git hub](https://github.com/whynotBb/202403_react-weather-app.git)<br/>
 <https://>
 
 ## open api
@@ -24,11 +24,12 @@ https://home.openweathermap.org/
    https://www.w3schools.com/html/html5_geolocation.asp
 3. api 호출하기
 
-    ```const getWeatherByCurrentLocation = async (lat, lon) => {
-            const apiKey = API KEY;
-            let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-            let response = await fetch(url);
-            let data = await response.json();
-            console.log("data", data);
-        };
+    ```
+    const getWeatherByCurrentLocation = async (lat, lon) => {
+        const apiKey = API KEY;
+        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+        let response = await fetch(url);
+        let data = await response.json();
+        console.log("data", data);
+    };
     ```
