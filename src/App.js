@@ -62,7 +62,7 @@ function App() {
         } else {
             getWeatherByCityName(city);
         }
-    }, [city]);
+    }, [getCurrentLocation, city]);
 
     return (
         <div
