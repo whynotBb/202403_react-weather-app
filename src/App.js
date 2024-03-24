@@ -39,7 +39,7 @@ function App() {
         }
     };
 
-    const getWeatherByCityName = async () => {
+    const getWeatherByCityName = async (city) => {
         try {
             let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
             setLoading(false);
@@ -60,7 +60,7 @@ function App() {
         if (city === "") {
             getCurrentLocation();
         } else {
-            getWeatherByCityName();
+            getWeatherByCityName(city);
         }
     }, [city]);
 
