@@ -63,11 +63,12 @@ button {
     }
 }
 .weather_box_wrap {
-    width: 50vw;
+    width: 60vw;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
     .weather_box {
         text-align: center;
         background: rgba(0, 0, 0, 0.3);
@@ -75,7 +76,7 @@ button {
         border-radius: 15px;
         padding: 20px;
         color: #fff;
-        max-width: 50rem;
+        max-width: 40rem;
         margin: 0 auto 20px;
         h2 {
             margin-bottom: 2rem;
@@ -98,5 +99,11 @@ button {
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
+        button.on {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border-color: rgba(0, 0, 0, 0.5);
+            box-shadow: 1px 1px 3px #222;
+        }
     }
 }

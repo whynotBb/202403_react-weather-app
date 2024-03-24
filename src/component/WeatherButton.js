@@ -1,15 +1,25 @@
 import React from "react";
 
-const WeatherButton = ({ getCurrentLocation, getCityName }) => {
-    const citys = ["jeju", "osaka", "new york", "paris", "busan"];
+const WeatherButton = ({ city, cities, setCity, getCurrentLocation }) => {
+    console.log("city", city);
     return (
         <ul className="city_btn_box">
             <li>
-                <button onClick={getCurrentLocation}>Current Location</button>
+                <button
+                    onClick={getCurrentLocation}
+                    className={city === "" ? "on" : ""}
+                >
+                    Current Location
+                </button>
             </li>
-            {citys.map((item, index) => (
+            {cities.map((item, index) => (
                 <li key={index}>
-                    <button onClick={() => getCityName(item)}>{item}</button>
+                    <button
+                        onClick={() => setCity(item)}
+                        className={city === item ? "on" : ""}
+                    >
+                        {item}
+                    </button>
                 </li>
             ))}
         </ul>
